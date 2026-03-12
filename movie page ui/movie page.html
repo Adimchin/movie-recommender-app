@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Movie Details - Cinematic View</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1152d4",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Be Vietnam Pro", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: "Be Vietnam Pro", sans-serif;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen">
+<div class="relative flex flex-col w-full overflow-x-hidden">
+<header class="sticky top-0 z-50 flex items-center justify-between px-6 py-4 bg-background-dark/80 backdrop-blur-md border-b border-slate-800">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-3xl">movie</span>
+<h2 class="text-slate-100 text-xl font-bold tracking-tight">CineView</h2>
+</div>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-slate-300 hover:text-primary text-sm font-medium transition-colors" href="#">Movies</a>
+<a class="text-slate-300 hover:text-primary text-sm font-medium transition-colors" href="#">TV Shows</a>
+<a class="text-slate-300 hover:text-primary text-sm font-medium transition-colors" href="#">People</a>
+<a class="text-slate-300 hover:text-primary text-sm font-medium transition-colors" href="#">My List</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">search</span>
+<input class="bg-slate-800 border-none rounded-lg pl-10 pr-4 py-2 text-sm w-64 focus:ring-2 focus:ring-primary text-slate-100 placeholder:text-slate-500" placeholder="Search movies, actors..." type="text"/>
+</div>
+<button class="p-2 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="h-8 w-8 rounded-full bg-primary flex items-center justify-center text-xs font-bold text-white overflow-hidden border border-slate-700">
+<img alt="User" data-alt="User profile circular avatar photo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFYb5LHkgP9isJQDJ0sn_vIi22Az4M5rNftA2o0c5q-wpYNa12orPwtLcplCxoYCFtMTH60tUDYbYWI8e7gReIifbeg7OrjdqVS7N6ZpOAhSr_EaOLEpj4dYYoYrqJwVeqj9bgciNTOEyIfs7WnlG7peSkPHZefQaNTM7Oa0QfnWxYPQIZXkyFfsgJG_1K1KKugYwKVn3P1GTF3_gj5vfLpmQLfZuT2jJTYKAxybH0MzXJzmeOn9jJxdjqnq1dGX_5ReCwI9z-to2a"/>
+</div>
+</div>
+</header>
+<section class="relative w-full h-[70vh] min-h-[500px]">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Cinematic space nebula wide movie backdrop" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDVdBM7xjpJClMFtQ5ArWO4vu62NmHpPv4FYcBcFOywlLQZ970eCdW5xQe-3US9MpFK9zwBpdH35HjMvzXE49MfmRgsWAG-7QcArCHzSEdYyCtLAhllsAVSGYCK3uFTI2t1jBfKxkRamuPRKA-WlJ6YNnO5fnyhwbyDs3ALLioOoGX8IXrraMkOx7E2xaPL761UQFURUgjuR4QR-mRKgne9Y3tAV7Vm0XWZ-Op6_dURzYaqmEhukdeUG0liZRP6LmE_RYX3fNCMejpm');">
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/40 to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-r from-background-dark/80 via-transparent to-transparent"></div>
+</div>
+<div class="relative h-full container mx-auto px-6 flex flex-col justify-end pb-12">
+<div class="max-w-3xl">
+<div class="flex items-center gap-3 mb-4">
+<span class="bg-primary/20 text-primary border border-primary/30 px-2 py-1 rounded text-xs font-bold uppercase tracking-wider">Sci-Fi</span>
+<span class="bg-yellow-500/20 text-yellow-500 border border-yellow-500/30 px-2 py-1 rounded text-xs font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">star</span> 8.7/10
+                        </span>
+</div>
+<h1 class="text-5xl md:text-7xl font-black text-slate-100 mb-4 tracking-tight">Interstellar</h1>
+<div class="flex items-center gap-4 text-slate-400 font-medium mb-8">
+<span>2014</span>
+<span class="w-1 h-1 rounded-full bg-slate-600"></span>
+<span>2h 49m</span>
+<span class="w-1 h-1 rounded-full bg-slate-600"></span>
+<span class="border border-slate-600 px-1.5 rounded text-[10px]">PG-13</span>
+</div>
+<div class="flex flex-wrap gap-4">
+<button class="bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-lg font-bold flex items-center gap-2 transition-all transform hover:scale-105">
+<span class="material-symbols-outlined">play_arrow</span>
+                            Play Trailer
+                        </button>
+<button class="bg-slate-800/80 hover:bg-slate-700 backdrop-blur-sm text-slate-100 px-6 py-3 rounded-lg font-bold flex items-center gap-2 transition-all">
+<span class="material-symbols-outlined">bookmark_add</span>
+                            Watchlist
+                        </button>
+<button class="bg-slate-800/80 hover:bg-slate-700 backdrop-blur-sm text-slate-100 p-3 rounded-lg transition-all">
+<span class="material-symbols-outlined">share</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<main class="container mx-auto px-6 py-12">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+<aside class="lg:col-span-3 space-y-8">
+<div class="relative group">
+<div class="w-full aspect-[2/3] rounded-xl overflow-hidden shadow-2xl border border-slate-800">
+<img alt="Poster" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Vertical movie poster for Interstellar film" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmeCRz8SeVZtwTP83rQoqg4MWQfCz3YbL5nK55lnremJXtIwnqmYQOwm_eqdCj4Tyvy3vCyESLXGPg4Fjvschhh6v1n_PDCNAcT44Z0fgsrVzrKhGitZUg_UM-qCSE0L5zgMvzEPZmN2ZYLvg38arrRktQKhH8nsI3JVHSDiFSPHNDoMfu0ZRk6j54Wegy-WZcRho-gnqdjZtm9rd_BbkMsh0Kk1_ZXwY7ScNG8pqYxJRnEp_0T7VhvHxbRsu7x6n8DG8rxh01UFco"/>
+</div>
+</div>
+<div class="space-y-6 bg-slate-800/20 p-6 rounded-xl border border-slate-800/50">
+<div>
+<p class="text-xs text-slate-500 uppercase font-bold tracking-widest mb-1">Status</p>
+<p class="text-slate-200 font-medium">Released</p>
+</div>
+<div>
+<p class="text-xs text-slate-500 uppercase font-bold tracking-widest mb-1">Original Language</p>
+<p class="text-slate-200 font-medium">English</p>
+</div>
+<div>
+<p class="text-xs text-slate-500 uppercase font-bold tracking-widest mb-1">Budget</p>
+<p class="text-slate-200 font-medium">$165,000,000.00</p>
+</div>
+<div>
+<p class="text-xs text-slate-500 uppercase font-bold tracking-widest mb-1">Revenue</p>
+<p class="text-slate-200 font-medium">$701,729,206.00</p>
+</div>
+<div class="pt-4 border-t border-slate-800/50">
+<p class="text-xs text-slate-500 uppercase font-bold tracking-widest mb-3">Keywords</p>
+<div class="flex flex-wrap gap-2">
+<span class="bg-slate-800 text-slate-400 px-3 py-1 rounded-full text-xs">artificial intelligence</span>
+<span class="bg-slate-800 text-slate-400 px-3 py-1 rounded-full text-xs">nasa</span>
+<span class="bg-slate-800 text-slate-400 px-3 py-1 rounded-full text-xs">space travel</span>
+<span class="bg-slate-800 text-slate-400 px-3 py-1 rounded-full text-xs">future</span>
+</div>
+</div>
+</div>
+</aside>
+<div class="lg:col-span-9 space-y-12">
+<section>
+<h3 class="text-2xl font-bold text-slate-100 mb-4">Overview</h3>
+<p class="text-lg text-slate-400 leading-relaxed italic mb-6">"The end of Earth will not be the end of us."</p>
+<p class="text-slate-300 text-lg leading-relaxed">
+                            When Earth becomes uninhabitable in the future, a farmer and ex-NASA pilot, Joseph Cooper, is tasked to pilot a spacecraft, along with a team of researchers, to find a new planet for humans. Cooper must leave his family behind and embark on a perilous journey through a wormhole to another galaxy, where time and physics work differently.
+                        </p>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-8 mt-10">
+<div>
+<p class="text-slate-100 font-bold">Christopher Nolan</p>
+<p class="text-sm text-slate-500">Director, Writer</p>
+</div>
+<div>
+<p class="text-slate-100 font-bold">Jonathan Nolan</p>
+<p class="text-sm text-slate-500">Writer</p>
+</div>
+<div>
+<p class="text-slate-100 font-bold">Hans Zimmer</p>
+<p class="text-sm text-slate-500">Composer</p>
+</div>
+</div>
+</section>
+<section>
+<div class="flex items-center justify-between mb-6">
+<h3 class="text-2xl font-bold text-slate-100">Top Billed Cast</h3>
+<a class="text-primary hover:underline text-sm font-semibold flex items-center gap-1" href="#">
+                                View All <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+<div class="flex gap-6 overflow-x-auto pb-6 hide-scrollbar">
+<div class="flex-shrink-0 w-32 text-center group">
+<div class="w-32 h-32 rounded-full overflow-hidden border-2 border-slate-800 group-hover:border-primary transition-colors mb-3">
+<img alt="Cast Member" class="w-full h-full object-cover" data-alt="Matthew McConaughey headshot portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOGfqYULJisap8B2eZ8fKow7MpvbxA39VXJY0-KWEJEjvcpSiAhkdBgSxAx1Pavf3pWaQgANgAf_jMqrtBz7eRavCsF4QFNjA1EbFsOXbYuM_gfkGXPhlku8oATzTKgMQ8eo6MiT6BqrFUDjI68L-oQNx6KEgipxbgykPcyZMhsJdts6vxB9OAsDw1kd4wAvfljYbbY3X2gczOCa6Zev6SkPft7SvWg76H7V3dUxV2Jhgng7h3dzr06xbISWYa6PEaBLZKMjuV0HQB"/>
+</div>
+<p class="text-slate-100 font-bold text-sm leading-tight">Matthew McConaughey</p>
+<p class="text-slate-500 text-xs mt-1">Joseph Cooper</p>
+</div>
+<div class="flex-shrink-0 w-32 text-center group">
+<div class="w-32 h-32 rounded-full overflow-hidden border-2 border-slate-800 group-hover:border-primary transition-colors mb-3">
+<img alt="Cast Member" class="w-full h-full object-cover" data-alt="Anne Hathaway headshot portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8G9U8Hu8li1hSuuDT3MU0VemvcE1-5-2Vzmbhig8j-oBNLzBWirVAfvz1in-wRtaURXjsol7uVNj_Nm0GZWUiMV6o9T792XZOoqVlFhx6vikhtw1644OipO2ILq-AvZ1R8Q4yIG9DgS45gZQAPLf5EQGC1KoAgaYVEhpeAmrwCckx2LQiJmE-o3qGxedocIiqAtzDDUW0CM9xcCoaNiC1OchBBVK4l473RpPvxLjY0mXurNWAMT8mnKDjx23iLgEonYpsHAbRw6IJ"/>
+</div>
+<p class="text-slate-100 font-bold text-sm leading-tight">Anne Hathaway</p>
+<p class="text-slate-500 text-xs mt-1">Dr. Amelia Brand</p>
+</div>
+<div class="flex-shrink-0 w-32 text-center group">
+<div class="w-32 h-32 rounded-full overflow-hidden border-2 border-slate-800 group-hover:border-primary transition-colors mb-3">
+<img alt="Cast Member" class="w-full h-full object-cover" data-alt="Jessica Chastain headshot portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCualRjqy1-NJpxACqFHsepd_0vTkc94rHFUhkT5JJELDMNCMb17ILWFOKFtwEEuSzCtJqqp2L96X1io8KDAmV51rF6GY-M0bXap1wFNQX1_But_MpKItzVpMY3KHP1pfbnOMqtMvux9AxzWetvu_bqTGH8gwRyg-MEzxdRZ5-JPBnwDCqugZvxl2amOxCJpwlHYxgVmaU3nJd-aoOrM-fqJu2z87u8lyLsMRBenm2rxXyCwPObKoNUbFYtWTr6scxnQdEuU15DR6iu"/>
+</div>
+<p class="text-slate-100 font-bold text-sm leading-tight">Jessica Chastain</p>
+<p class="text-slate-500 text-xs mt-1">Murphy Cooper</p>
+</div>
+<div class="flex-shrink-0 w-32 text-center group">
+<div class="w-32 h-32 rounded-full overflow-hidden border-2 border-slate-800 group-hover:border-primary transition-colors mb-3">
+<img alt="Cast Member" class="w-full h-full object-cover" data-alt="Michael Caine headshot portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxKm0bFV09yY05txEMoNn98fFSZVMzyd0SDoduNvRdTu7HUJbi8D76JL4OKVTKwhFsf9wQiHUvOAPLz-ifmlhR9Wb1AHfAenx3ZdLv5QNj-ZywjXMCs4gHYtwPeAY0kcHyFF6tDe6CdmZvaS3WCvGW2BY6aLsy_PgK1TYf0Ba4WbeQkLeHOE5AN1YksfN2bmRYJuTvkSkRRzDufoR9sCPuqlPYq02iUU8-TyTSDdPbCc3U1XLT_KK9AeEQoZlWd1arXYqR9D1_04D7"/>
+</div>
+<p class="text-slate-100 font-bold text-sm leading-tight">Michael Caine</p>
+<p class="text-slate-500 text-xs mt-1">Professor Brand</p>
+</div>
+<div class="flex-shrink-0 w-32 text-center group">
+<div class="w-32 h-32 rounded-full overflow-hidden border-2 border-slate-800 group-hover:border-primary transition-colors mb-3">
+<img alt="Cast Member" class="w-full h-full object-cover" data-alt="Casey Affleck headshot portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuz9HrwLd9SzxUBX5lzRAxQVA3u6LS30WrM5raoWvTCad6q9U_pKwpsoGIvPek_DwGHYo7XALf83b3R9n_Vj_F4VA_pfpsWdC4lkIXvbjBk3f-mUomBsjLhLfYho_2egMeiGRQ4e34DGL4D75iJYohS-dHtVW2Fak6UIVvaylfA0BreQ7qw5iLTYCQfehInrXczn-AZxR0TXnL_5Vn_QYgqFwBOQC5fUazlmlcAfPw_fQqYwUKaZHrAQPjke7KJyk2N6jp5rGpjCpm"/>
+</div>
+<p class="text-slate-100 font-bold text-sm leading-tight">Casey Affleck</p>
+<p class="text-slate-500 text-xs mt-1">Tom Cooper</p>
+</div>
+<div class="flex-shrink-0 w-32 text-center group">
+<div class="w-32 h-32 rounded-full overflow-hidden border-2 border-slate-800 group-hover:border-primary transition-colors mb-3">
+<img alt="Cast Member" class="w-full h-full object-cover" data-alt="Matt Damon headshot portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCm4flhI5CFkRpvYHe_B4Bs6_6z9XPzDRlpx6W2pgrdnEvaFtMwb_BrfRQcGxnTEpr5O9Bye2BFmmVQRitQ6l-bHMZTOH_oxdHFN0JLHczdjze3xe8izKigjnzNIyR99PWr3aFxj1GRA1ZB169xBNCJshPaGpTrhn7CWARStkDghCUMhkMgqjk1LRUJJK9ajSDO5z42g-CB_CTWQxfnbAX3xWS6btCWiakCpE41U-F3ySl1V0wHkol2SozxLI4Uy7g03XYdVoUE_Bi1"/>
+</div>
+<p class="text-slate-100 font-bold text-sm leading-tight">Matt Damon</p>
+<p class="text-slate-500 text-xs mt-1">Dr. Mann</p>
+</div>
+</div>
+</section>
+<section class="border-t border-slate-800 pt-12">
+<div class="flex items-center justify-between mb-6">
+<h3 class="text-2xl font-bold text-slate-100">Recommended Movies</h3>
+</div>
+<div class="flex gap-6 overflow-x-auto pb-6 hide-scrollbar">
+<div class="flex-shrink-0 w-[160px] group cursor-pointer">
+<div class="w-full aspect-[2/3] rounded-lg overflow-hidden mb-3 border border-slate-800 shadow-lg">
+<img alt="Recommended Movie" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7daCa3YBzeznGOtyzB2E4D4gOf_NTSJqRE7rwgEtsHSLQsqXw-98XGttp7E-C9CFX_0yikRLM_NGFkXA-hfXQF_zQ9eo6nW5OE3z1usZCUQsRYmfk-GzzzhWKiPQm4b-EGAEGuDI30ktTUU5BRqZaMBDZgiXmXzg5h04_DbjVNbR4CPdgkaVwd4rFhQZx07_aDQ97CIBdynJbQ8pu6QTBx0xF6rhRGaojlJTFXVXtwufOUWyDE46WjaGFwH-J-kVQK-H9OFuR-KVE"/>
+</div>
+<h4 class="text-slate-100 font-bold text-sm truncate">Inception</h4>
+<div class="flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-[14px] text-yellow-500">star</span>
+<span class="text-slate-400 text-xs font-medium">8.8</span>
+</div>
+</div>
+<div class="flex-shrink-0 w-[160px] group cursor-pointer">
+<div class="w-full aspect-[2/3] rounded-lg overflow-hidden mb-3 border border-slate-800 shadow-lg">
+<img alt="Recommended Movie" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMEAGp5vkoS0_nnaVVF6smSw6QGFvSP60yyvBZWnYmJ3Z7sH_sOdpquVy_UHSq6nVwPS3Vub6QbAl1Mt8w8-j8ioN69BoaIgMJdJtMMXcnhp86vi-C8hAn6uDEqg1hf6vIpNVvmblH1E7qdmSBVmA86N0Kv0Vigst0m2y0B9-B-apSPIwwHAQGeof2wmslo6u-vTcu3Tns8iNJKolb2YOnUMSj2Owonl8vEasqqc6Y7oFXXhsrinsNVzs2qGiMIRbsdemw2HNJEUiw"/>
+</div>
+<h4 class="text-slate-100 font-bold text-sm truncate">The Martian</h4>
+<div class="flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-[14px] text-yellow-500">star</span>
+<span class="text-slate-400 text-xs font-medium">8.0</span>
+</div>
+</div>
+<div class="flex-shrink-0 w-[160px] group cursor-pointer">
+<div class="w-full aspect-[2/3] rounded-lg overflow-hidden mb-3 border border-slate-800 shadow-lg">
+<img alt="Recommended Movie" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVRhioKnXd_Pp5Y8OSCNiDGNUWEqpNBc7swBsHIRyfKZwSa98b9JbTL6qHimTmD0ghKxXu2eNRCxplMOut4du6QESYj2tt8DI9do3Afbxdlc2zEQdFfMAeGHm1Nr0mi3ljDpB2Zv5i7Rrk5xVkhwjJz8uXqw-2rL_A8v3gB8uEEh7-YDelwH30inrqlFZgyttolPZ4VJNAaRtx_saSt636f7x6qkbrNk-tFChGOINI1YKzFp95RnRdPhSDB9pb9ksa5Z-B_0b3tE-V"/>
+</div>
+<h4 class="text-slate-100 font-bold text-sm truncate">Gravity</h4>
+<div class="flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-[14px] text-yellow-500">star</span>
+<span class="text-slate-400 text-xs font-medium">7.2</span>
+</div>
+</div>
+<div class="flex-shrink-0 w-[160px] group cursor-pointer">
+<div class="w-full aspect-[2/3] rounded-lg overflow-hidden mb-3 border border-slate-800 shadow-lg">
+<img alt="Recommended Movie" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAL44z3Ey8RR_Z1baQW7xCpJNYbPpssfbuLOrcGJGGV5szJUV2PoJxZBBTZZpMD8MVN03qxj5o5IRu9ADXcojmIy8Ws-Z9kMEGncPIyI_pVlQm8pran9Xj98peRw9XqLPlxhCNXzZeXYgZqscx9r4piZ9321i2YTye6V9d66jCrR86Jqs5onruYfYCJq_N5B_RqxLWtfQwil4fBc1ZUIZgkrc78UkNjxMj98oasLm8_dm1FlBQq2z_GDEMfjSPMQUl9xUl6LTeWXMWq"/>
+</div>
+<h4 class="text-slate-100 font-bold text-sm truncate">Arrival</h4>
+<div class="flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-[14px] text-yellow-500">star</span>
+<span class="text-slate-400 text-xs font-medium">8.0</span>
+</div>
+</div>
+<div class="flex-shrink-0 w-[160px] group cursor-pointer">
+<div class="w-full aspect-[2/3] rounded-lg overflow-hidden mb-3 border border-slate-800 shadow-lg">
+<img alt="Recommended Movie" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWP6rog5kvIyZsnjf_jiYdCmjA4wkR3bbCGE9Hy_aLoPVlWnDFcC8FzpaX7K-2yZxtVX1JuHqhJqQWB58GOgae1xJrZSpH3yztvpIX46LK4QK0GytxoZVIW-MvR-G8zOBe0wUKKcWiGEpwiRoKzcS4agGjZT937NJ87cJFfPXbiaoTFSRDwxkx0TETaNJkI0UuCeJnQduu7werfhskmcWemocsL-GTTObZALtaD9wMza1-Cy6sFmCHRPEnmJFMZnGwzJG4KTSFpD1U"/>
+</div>
+<h4 class="text-slate-100 font-bold text-sm truncate">Dune</h4>
+<div class="flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-[14px] text-yellow-500">star</span>
+<span class="text-slate-400 text-xs font-medium">8.4</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</main>
+<footer class="bg-background-dark border-t border-slate-800 py-12 px-6">
+<div class="container mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex items-center gap-2 text-primary opacity-60">
+<span class="material-symbols-outlined text-2xl">movie</span>
+<h2 class="text-slate-100 text-lg font-bold tracking-tight">CineView</h2>
+</div>
+<div class="flex gap-8 text-sm text-slate-500">
+<a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="hover:text-primary transition-colors" href="#">Contact</a>
+</div>
+<p class="text-slate-600 text-xs">© 2024 CineView. All movie data provided by TMDB.</p>
+</div>
+</footer>
+</div>
+</body></html>
