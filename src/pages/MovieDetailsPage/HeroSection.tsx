@@ -16,11 +16,19 @@ function HeroSection({movie}: HeroSectionProp) {
         <div className="pl-8 space-y-7">
           <div className="flex gap-5 text-sm">
             <button className="text-blue-700 font-semibold bg-blue-900/50 border border-blue-700/60 rounded px-4 py-1">
-              
+              {movie?.genres.map((genre: any , index:number) => {
+                if(index < movie?.genres.length - 1){
+                  return `${genre.name} | `
+                } else{
+                  return genre.name
+                }
+              })}
             </button>
             <button className="text-amber-400/80 font-semibold bg-amber-400/20 border border-amber-400/60 rounded px-4 py-1 flex gap-1 items-center">
               <Star size={13} strokeWidth={3} />
-              <span>8.7/10</span>
+              <span>
+                {movie && `${movie?.vote_average.toFixed(1)}/10`}
+              </span>
             </button>
           </div>
           <div className="space-y-5">

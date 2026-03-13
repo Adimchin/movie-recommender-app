@@ -13,7 +13,7 @@ const getHeaders = () => ({
 export const fetchPopularMovies = async () => {
   const response = await tmdbApi.get(
     "/discover/movie?include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc",
-    { headers: getHeaders() }
+    { headers: getHeaders() },
   );
   return response.data;
 };
@@ -24,7 +24,7 @@ export const fetchPopularMovies = async () => {
 export const fetchPopularTvSeries = async () => {
   const response = await tmdbApi.get(
     "/discover/tv?include_adult=false&language=en-US&page=1&sort_by=vote_average.desc&vote_count.gte=200",
-    { headers: getHeaders() }
+    { headers: getHeaders() },
   );
   return response.data;
 };
@@ -35,7 +35,7 @@ export const fetchPopularTvSeries = async () => {
 export const fetchActionMovies = async () => {
   const response = await tmdbApi.get(
     "/discover/movie?include_adult=false&language=en-US&page=1&sort_by=vote_average.desc&vote_count.gte=200",
-    { headers: getHeaders() }
+    { headers: getHeaders() },
   );
   return response.data;
 };
@@ -45,7 +45,7 @@ export const fetchActionMovies = async () => {
  */
 export const fetchMovieDetails = async (movieId: string | null) => {
   if (!movieId) throw new Error("Movie ID is required");
-  
+
   const response = await tmdbApi.get(`/movie/${movieId}`, {
     headers: getHeaders(),
   });
@@ -70,4 +70,17 @@ export const fetchMoviesByCategory = async (categoryUrl: string) => {
     headers: getHeaders(),
   });
   return response.data;
+};
+
+/**
+ *
+ * Fetch movie keywords
+ */
+
+export const fetchKeywords = async (movieId: number) => {
+  const res = await tmdbApi.get(`/movie/${movieId}/keywords` , {
+    headers: getHeaders()
+  });
+
+  return res.data;
 };

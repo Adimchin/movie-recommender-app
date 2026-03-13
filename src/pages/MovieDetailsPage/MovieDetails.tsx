@@ -1,24 +1,22 @@
 import { MoveRight } from "lucide-react";
+import { fetchKeywords } from "../../service/tmdb";
 import { useEffect, useState } from "react";
-import { fetchMovieGenres } from "../../service/tmdb";
 
 type MovieDetailsProp = {
   movie: any;
 };
 
 function MovieDetails({ movie }: MovieDetailsProp) {
-  const [movieGenre, setMovieGenre] = useState<any>(null);
+  const [keywords, setKeywords] = useState<any>(null);
 
   useEffect(() => {
-    const getGenreData = async () => {
-      const res = await fetchMovieGenres();
-      setMovieGenre(res);
+    const getKeywords = async () => {
+      const keywords = await fetchKeywords(movie?.id);
+      setKeywords(keywords);
     };
+    getKeywords();
+  }, [movie]);
 
-    getGenreData();
-  }, []);
-
-  console.log(movieGenre);
   console.log(movie);
 
   return (
@@ -40,7 +38,7 @@ function MovieDetails({ movie }: MovieDetailsProp) {
                 STATUS
               </span>
               <span className="tracking-wide font-semibold text-[17px]">
-                Released
+                {movie?.status}
               </span>
             </div>
             <div className="flex flex-col gap-1 text-white text-[14px]">
@@ -48,7 +46,7 @@ function MovieDetails({ movie }: MovieDetailsProp) {
                 ORIGINAL LANGUAGE
               </span>
               <span className="tracking-wide font-semibold text-[17px]">
-                English
+                {movie?.original_language}
               </span>
             </div>
             <div className="flex flex-col gap-1 text-white text-[14px]">
@@ -56,7 +54,7 @@ function MovieDetails({ movie }: MovieDetailsProp) {
                 BUDGET
               </span>
               <span className="tracking-wide font-semibold text-[17px]">
-                English
+                {`${movie?.budget}$`}
               </span>
             </div>
             <div className="flex flex-col gap-1 text-white text-[14px]">
@@ -64,7 +62,7 @@ function MovieDetails({ movie }: MovieDetailsProp) {
                 REVENUE
               </span>
               <span className="tracking-wide font-semibold text-[17px]">
-                English
+                {`${movie?.revenue}$`}
               </span>
             </div>
             <div className="border-slate-800/30 border-[0.1px] mx-1"></div>
@@ -74,14 +72,18 @@ function MovieDetails({ movie }: MovieDetailsProp) {
                   KEYWORDS
                 </span>
               </div>
-              <div className="space-x-3">
+              <div className="flex gap-3 flex-wrap">
                 {/*loop keywords*/}
-                <span className="tracking-wide font-semibold text-sm text-slate-400 bg-slate-800/70 border-slate-800/30 border-[0.1px] px-3 py-1 rounded-full">
-                  english
-                </span>
-                <span className="tracking-wide font-semibold text-sm text-slate-400 bg-slate-800/70 border-slate-800/30 border-[0.1px] px-3 py-1 rounded-full">
-                  english
-                </span>
+                {keywords?.keywords.map((keyword: any) => {
+                  return (
+                    <span 
+                    className="tracking-wide font-semibold text-sm text-slate-400 bg-slate-800/70 border-slate-800/30 border-[0.1px] px-3 py-1 rounded-full shrink-0"
+                    key={crypto.randomUUID()}
+                    >
+                      {keyword.name}
+                    </span>
+                  );
+                })}
               </div>
             </div>
           </div>
