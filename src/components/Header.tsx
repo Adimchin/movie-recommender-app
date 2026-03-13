@@ -42,8 +42,12 @@ function Header() {
         <Link to={"/"}>
           <div className="hover:text-white cursor-pointer">Home</div>
         </Link>
+        <Link to={'/see-more?category=popular'}>
         <div className="hover:text-white cursor-pointer">Movies</div>
+        </Link>
+        <Link to={'/see-more?category=tv-series'}>
         <div className="hover:text-white cursor-pointer">Tv shows</div>
+        </Link>
         <div className="hover:text-white cursor-pointer">More</div>
       </div>
       <div className="flex gap-5">

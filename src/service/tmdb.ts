@@ -78,6 +78,7 @@ export const fetchMoviesByCategory = async (categoryUrl: string) => {
  */
 
 export const fetchKeywords = async (movieId: number) => {
+
   const res = await tmdbApi.get(`/movie/${movieId}/keywords` , {
     headers: getHeaders()
   });

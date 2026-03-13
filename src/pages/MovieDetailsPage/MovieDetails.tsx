@@ -10,6 +10,8 @@ function MovieDetails({ movie }: MovieDetailsProp) {
   const [keywords, setKeywords] = useState<any>(null);
 
   useEffect(() => {
+    console.log(movie);
+    if (!movie) return;
     const getKeywords = async () => {
       const keywords = await fetchKeywords(movie?.id);
       setKeywords(keywords);
@@ -17,7 +19,7 @@ function MovieDetails({ movie }: MovieDetailsProp) {
     getKeywords();
   }, [movie]);
 
-  console.log(movie);
+  console.log(keywords);
 
   return (
     <div className="mt-8 mx-5 md:flex md:flex-col md:items-center">

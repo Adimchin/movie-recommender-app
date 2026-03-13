@@ -7,7 +7,7 @@ import PopularMovies from "./pages/HomePage/Movies/Popular movies/PopularMovies"
 import TvSeries from "./pages/HomePage/Movies/TvSeries/TvSeries";
 import ActionMovies from "./pages/HomePage/Movies/ActionMovies/ActionMovies";
 import MovieDetailsPage from "./pages/MovieDetailsPage/MovieDetailsPage";
-
+import SeeMorePage from "./pages/SeeMorePage/SeeMorePage";
 function App() {
   const [popular_TvSeries, setPopular_TvSeries] = useState<any>(null);
   const [OnAir_TvSeries, setOnairTvSeries] = useState<any>(null);
@@ -53,6 +53,8 @@ function App() {
       <Route path="/tv-series" element={<TvSeries OnAir_TvSeries={OnAir_TvSeries} />} />
       <Route path="/action-movies" element={<ActionMovies actionMovies={actionMovies} />} />
       <Route path="/movie-details" element={<MovieDetailsPage />} />
+      <Route path="/see-more" element={<SeeMorePage />} />
+
     </Routes>
   );
 }
