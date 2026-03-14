@@ -3,7 +3,7 @@ import { fetchMovieDetails } from "../../service/tmdb";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import HeroSection from "./HeroSection";
-import MovieDetails from "./MovieDetails";
+import MovieDetails from "./MovieDetails/MovieDetails";
 import { useSearchParams } from "react-router";
 
 function MovieDetailsPage() {

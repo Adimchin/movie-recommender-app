@@ -85,3 +85,12 @@ export const fetchKeywords = async (movieId: number) => {
 
   return res.data;
 };
+
+export const fetchMovieCrew_CastData = async (movieId: number) => {
+
+  const res = await tmdbApi.get(`/movie/${movieId}/credits` , {
+    headers: getHeaders()
+  });
+
+  return res.data;
+};
